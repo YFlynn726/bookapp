@@ -6,24 +6,24 @@ class PrintType extends Component {
     this.state = { printType: "" };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    //this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ printType: event.target.printType });
+    this.setState({ printType: event.target.value });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    this.props.fetchBooks(this.state.printType);
-  }
+  //handleSubmit(event) {
+  // event.preventDefault();
+  //this.props.fetchBooks(this.state.printType);
+  //}
 
   render() {
     return (
       <form>
         <label>
           Print Type:
-          <select printType={this.state.printType} onChange={this.handleChange}>
+          <select print={this.state.printType} onChange={this.handleChange}>
             <option value="all">All</option>
             <option value="book">Book</option>
             <option value="magazines">Magazines</option>
