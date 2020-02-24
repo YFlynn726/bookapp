@@ -1,26 +1,58 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import SearchInput from "./SearchInput";
+import BookList from "./BookList";
+import PrintType from "./PrintType";
+import BookType from "./BookType";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: [],
+      error: ""
+    };
+  }
+
+  fetchBooks = (term, printType, filter) => {
+    fetch(
+      `https://www.googleapis.com/books/v1/volumes?q=${term}&filter=${filter}&${printType}&key=AIzaSyAvdxkmEZLq2g6O-BgECx1bqHdCIYCuCR0`
+    )
+      .then(results => {
+        console.log(results);
+        return results.json();
+      })
+      .then(data => {
+        console.log(data);
+        this.updateBooks(data.items);
+      })
+      .catch(err => {
+        this.setState({
+          error: err.message
+        });
+      });
+  };
+
+  updateBooks = books => {
+    this.setState({
+      items: books
+    });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <h1>Google Book Search</h1>
+        <SearchInput
+          searchTerm={this.props.value}
+          fetchBooks={this.fetchBooks}
+        />
+        <BookList items={this.state.items} />
+        <PrintType print={this.props.printType} fetchBooks={this.fetchBooks} />
+        <BookType filter={this.props.filter} fetchBooks={this.fetchBooks} />
+      </div>
+    );
+  }
 }
 
 export default App;

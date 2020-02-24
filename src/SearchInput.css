@@ -1,0 +1,15 @@
+label {
+  padding-right: 5px;
+}
+input {
+  border-radius: 1px;
+  padding: 5px;
+}
+button {
+  margin: 5px;
+  border-radius: 3px;
+}
+
+form {
+  background-color: gray;
+}
