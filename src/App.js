@@ -11,8 +11,8 @@ class App extends Component {
     this.state = {
       items: [],
       error: "",
-      filter: "",
-      printType: "",
+      filter: "ebooks",
+      printType: "all",
       term: ""
     };
 
