@@ -44,10 +44,12 @@ class App extends Component {
   }
 
   fetchBooks = (term, printType, filter) => {
+    let url = `https://www.googleapis.com/books/v1/volumes?q=${term}&printType=${printType}&key=AIzaSyAvdxkmEZLq2g6O-BgECx1bqHdCIYCuCR0`;
+    if (filter !== undefined) {
+      url += `&filter=${filter}`;
+    }
     console.log(this.state);
-    fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${term}&printType=${printType}&filter=${filter}&key=AIzaSyAvdxkmEZLq2g6O-BgECx1bqHdCIYCuCR0`
-    )
+    fetch(url)
       .then(results => {
         console.log(results);
         return results.json();
