@@ -10,8 +10,28 @@ class App extends Component {
     super(props);
     this.state = {
       items: [],
-      error: ""
+      error: "",
+      filter: "",
+      printType: "",
+      term: ""
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.fetchBooks(this.state.term);
+  }
+  handleSelect(event) {
+    this.setState({ filter: event.target.value });
+    this.setState({ printType: event.target.value });
   }
 
   fetchBooks = (term, printType, filter) => {
@@ -44,12 +64,22 @@ class App extends Component {
       <div className="App">
         <h1>Google Book Search</h1>
         <SearchInput
-          searchTerm={this.props.value}
+          searchTerm={this.state.term}
           fetchBooks={this.fetchBooks}
+          onSubmit={this.handleSubmit}
+          onChange={this.handleChange}
         />
         <BookList items={this.state.items} />
-        <PrintType print={this.props.printType} fetchBooks={this.fetchBooks} />
-        <BookType filter={this.props.filter} fetchBooks={this.fetchBooks} />
+        <PrintType
+          print={this.state.printType}
+          fetchBooks={this.fetchBooks}
+          onChange={this.handleChange}
+        />
+        <BookType
+          filter={this.state.filter}
+          fetchBooks={this.fetchBooks}
+          onChange={this.handleChange}
+        />
       </div>
     );
   }
