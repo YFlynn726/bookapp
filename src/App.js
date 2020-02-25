@@ -22,12 +22,12 @@ class App extends Component {
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    this.setState({ term: event.target.value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    this.fetchBooks(this.state.term);
+    this.fetchBooks(this.state.term, this.state.printType, this.state.filter);
   }
   handleSelect(event) {
     this.setState({ filter: event.target.value });
