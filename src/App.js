@@ -32,8 +32,12 @@ class App extends Component {
     event.preventDefault();
     //collect inputs from the form how to collect data from a form to react
     //this.setState({ term: event.target.term });
-    this.fetchBooks(this.state.term, this.state.printType, this.state.filter);
+    if (this.state.filter === "no filter")
+      this.fetchBooks(this.state.term, this.state.printType);
+    else
+      this.fetchBooks(this.state.term, this.state.printType, this.state.filter);
   }
+
   handleSelect(event) {
     this.setState({ filter: event.target.value });
     this.setState({ printType: event.target.value });
