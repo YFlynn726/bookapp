@@ -5,11 +5,11 @@ class PrintType extends Component {
     super(props);
     this.state = { printType: "" };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
     //this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
+  handleSelect(event) {
     this.setState({ printType: event.target.value });
   }
 
@@ -23,7 +23,7 @@ class PrintType extends Component {
       <form>
         <label>
           Print Type:
-          <select print={this.state.printType} onChange={this.handleChange}>
+          <select print={this.state.printType} onChange={this.handleSelect}>
             <option value="all">All</option>
             <option value="book">Book</option>
             <option value="magazines">Magazines</option>

@@ -3,13 +3,13 @@ import React, { Component } from "react";
 class BookType extends Component {
   constructor(props) {
     super(props);
-    this.state = { filter: "eBooks" };
+    this.state = { filter: "" };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
     //this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
+  handleSelect(event) {
     this.setState({ filter: event.target.value });
   }
 
@@ -23,7 +23,7 @@ class BookType extends Component {
       <form>
         <label>
           Book Type:
-          <select print={this.state.filter} onChange={this.handleChange}>
+          <select print={this.state.filter} onChange={this.handleSelect}>
             <option value="no filter">No Filter</option>
             <option value="free ebooks">Free eBooks</option>
             <option value="paid ebook">Paid eBook</option>

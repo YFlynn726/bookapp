@@ -16,7 +16,7 @@ class App extends Component {
 
   fetchBooks = (term, printType, filter) => {
     fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${term}&filter=${filter}&${printType}&key=AIzaSyAvdxkmEZLq2g6O-BgECx1bqHdCIYCuCR0`
+      `https://www.googleapis.com/books/v1/volumes?q=${term}&filter=${filter}&printType=${printType}&key=AIzaSyAvdxkmEZLq2g6O-BgECx1bqHdCIYCuCR0`
     )
       .then(results => {
         console.log(results);
