@@ -8,7 +8,7 @@ class SearchInput extends Component {
         <label htmlFor="title">Search:</label>
         <input
           value={this.props.term}
-          //onChange={this.props.onChange}
+          onChange={this.props.onChange}
           type="text"
           name="term"
           id="title"
