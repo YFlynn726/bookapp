@@ -9,7 +9,7 @@ class BookType extends Component {
           <select
             name="filter"
             print={this.props.filter}
-            onChange={this.props.onChange}
+            //onChange={this.props.onChange}
           >
             <option value="no filter">No Filter</option>
             <option value="free-ebooks">Free eBooks</option>

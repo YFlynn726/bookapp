@@ -77,18 +77,18 @@ class App extends Component {
           searchTerm={this.state.term}
           fetchBooks={this.fetchBooks}
           onSubmit={this.handleSubmit}
-          onChange={this.handleChange}
+          //onChange={this.handleChange}
         />
         <BookList items={this.state.items} />
         <PrintType
           print={this.state.printType}
           fetchBooks={this.fetchBooks}
-          onChange={this.handleChange}
+          //onChange={this.handleChange}
         />
         <BookType
           filter={this.state.filter}
           fetchBooks={this.fetchBooks}
-          onChange={this.handleChange}
+          //onChange={this.handleChange}
         />
       </div>
     );

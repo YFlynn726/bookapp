@@ -9,7 +9,7 @@ class PrintType extends Component {
           <select
             name="printType"
             print={this.props.printType}
-            onChange={this.props.onChange}
+            //onChange={this.props.onChange}
           >
             <option value="all">All</option>
             <option value="books">Book</option>
