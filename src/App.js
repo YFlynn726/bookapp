@@ -22,11 +22,16 @@ class App extends Component {
   }
 
   handleChange(event) {
-    this.setState({ term: event.target.value });
+    //object destructuring
+    const { name, value } = event.target;
+
+    this.setState({ [name]: value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
+    //collect inputs from the form how to collect data from a form to react
+    //this.setState({ term: event.target.term });
     this.fetchBooks(this.state.term, this.state.printType, this.state.filter);
   }
   handleSelect(event) {
@@ -36,7 +41,7 @@ class App extends Component {
 
   fetchBooks = (term, printType, filter) => {
     fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${term}&filter=${filter}&printType=${printType}&key=AIzaSyAvdxkmEZLq2g6O-BgECx1bqHdCIYCuCR0`
+      `https://www.googleapis.com/books/v1/volumes?q=${term}&printType=${printType}&filter=${filter}&key=AIzaSyAvdxkmEZLq2g6O-BgECx1bqHdCIYCuCR0`
     )
       .then(results => {
         console.log(results);

@@ -10,7 +10,7 @@ class SearchInput extends Component {
           value={this.props.term}
           onChange={this.props.onChange}
           type="text"
-          name="title"
+          name="term"
           id="title"
           placeholder="Tuesdays with Morrie"
         />

@@ -6,9 +6,13 @@ class PrintType extends Component {
       <form>
         <label>
           Print Type:
-          <select print={this.props.printType} onChange={this.props.onChange}>
+          <select
+            name="printType"
+            print={this.props.printType}
+            onChange={this.props.onChange}
+          >
             <option value="all">All</option>
-            <option value="book">Book</option>
+            <option value="books">Book</option>
             <option value="magazines">Magazines</option>
           </select>
         </label>

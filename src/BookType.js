@@ -6,10 +6,14 @@ class BookType extends Component {
       <form>
         <label>
           Book Type:
-          <select print={this.props.filter} onChange={this.props.onChange}>
+          <select
+            name="filter"
+            print={this.props.filter}
+            onChange={this.props.onChange}
+          >
             <option value="no filter">No Filter</option>
-            <option value="free ebooks">Free eBooks</option>
-            <option value="paid ebook">Paid eBook</option>
+            <option value="free-ebooks">Free eBooks</option>
+            <option value="paid-ebooks">Paid eBook</option>
             <option value="ebooks">eBooks</option>
           </select>
         </label>
