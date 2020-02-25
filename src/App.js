@@ -79,7 +79,7 @@ class App extends Component {
           onSubmit={this.handleSubmit}
           onChange={this.handleChange}
         />
-        <BookList items={this.state.items} />
+
         <PrintType
           print={this.state.printType}
           fetchBooks={this.fetchBooks}
@@ -90,6 +90,7 @@ class App extends Component {
           fetchBooks={this.fetchBooks}
           onChange={this.handleChange}
         />
+        <BookList items={this.state.items} />
       </div>
     );
   }

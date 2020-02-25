@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class BookType extends Component {
   render() {
     return (
-      <form>
+      <form className="book-form">
         <label>
           Book Type:
           <select
