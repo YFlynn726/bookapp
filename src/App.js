@@ -16,17 +16,17 @@ class App extends Component {
       term: ""
     };
 
-    this.handleChange = this.handleChange.bind(this);
+    //this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
   }
 
-  handleChange(event) {
-    //object destructuring
-    const { name, value } = event.target;
+  //handleChange(event) {
+  //object destructuring
+  //const { name, value } = event.target;
 
-    this.setState({ [name]: value });
-  }
+  //this.setState({ [name]: value });
+  //}
 
   handleSubmit(event) {
     event.preventDefault();
