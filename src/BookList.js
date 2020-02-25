@@ -17,7 +17,9 @@ class bookList extends Component {
             />
             <br />
             <h3>Title: {item.volumeInfo.title}</h3> <br /> Author:{" "}
-            {item.volumeInfo.authors[0]}
+            {item.volumeInfo.authors
+              ? item.volumeInfo.authors[0]
+              : "none listed"}
             <br /> Description: {item.volumeInfo.description} <br />
             Price:{" "}
             {item.saleInfo.listPrice
